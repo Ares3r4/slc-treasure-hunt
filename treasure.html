@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SLC Christmas Treasure Hunt</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #e94560;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      animation: slideDown 1.5s ease;
+    }
+
+    @keyframes slideDown {
+      from {transform: translateY(-50px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 0 10px #ffd369;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: transform 0.5s, box-shadow 0.5s;
+      animation: fadeUp 1.5s ease;
+    }
+
+    section:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.1);
+    }
+
+    @keyframes fadeUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    h2 {
+      color: #ff7b91;
+      text-align: center;
+      border-bottom: 2px solid #ff7b91;
+      padding-bottom: 0.5rem;
+      text-shadow: 0 0 8px #e94560;
+    }
+
+    ul {
+      line-height: 1.8;
+      padding-left: 20px;
+    }
+
+    .highlight {
+      color: #ffd369;
+      font-weight: bold;
+    }
+
+    .button-container {
+      text-align: center;
+      margin: 3rem 0;
+      animation: fadeUp 2s ease;
+    }
+
+    .start-btn {
+      background: #e94560;
+      color: white;
+      font-size: 1.4rem;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.4s;
+      box-shadow: 0 0 15px rgba(233, 69, 96, 0.6);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .start-btn:hover {
+      background: #ff7b91;
+      box-shadow: 0 0 25px rgba(255, 123, 145, 0.9);
+      transform: scale(1.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #0f3460;
+      color: #ccc;
+      margin-top: 3rem;
+      border-top: 1px solid #222;
+      font-size: 0.9rem;
+      animation: fadeIn 2s ease;
+    }
+
+    .snowflake {
+      position: fixed;
+      top: 0;
+      z-index: 9999;
+      color: white;
+      font-size: 1em;
+      opacity: 0.8;
+      pointer-events: none;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10px); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0.3; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎄 Student Learning Community Christmas Treasure Hunt 🎁</h1>
+    <p>Hosted by the Student Learning Community</p>
+  </header>
+
+  <section>
+    <h2>Objective</h2>
+    <p>
+      The purpose of this event is to organize a fun and engaging treasure hunt activity for members of the Student Learning Community.
+      It encourages <span class="highlight">problem-solving and exploration</span> while bringing a festive and exciting challenge across campus.
+    </p>
+  </section>
+
+  <section>
+    <h2>Event Overview</h2>
+    <p>
+      The Treasure Hunt features <span class="highlight">five hidden locations</span> around the campus.
+      Each location can be found by scanning <span class="highlight">QR codes</span> that lead to digital puzzles.
+      When a puzzle is solved, <span class="highlight">the next location will be visible</span>.
+    </p>
+  </section>
+
+  <section>
+    <h2>How It Works</h2>
+    <ul>
+      <li>Start at the designated starting point and scan the first QR code.</li>
+      <li>Each QR code opens a webpage with a puzzle of a familiar campus location.</li>
+      <li>When the puzzle is solved, <span class="highlight">the next location will be visible</span>.</li>
+      <li>Continue through all <span class="highlight">five stages</span> to complete the hunt.</li>
+      <li>The first participant to finish all puzzles and reach the final spot wins!</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Rules</h2>
+    <ul>
+      <li>This is a solo event — participants must complete all puzzles on their own.</li>
+      <li>Use your phone to scan QR codes and solve the puzzles.</li>
+      <li>Please do not move or damage QR codes placed on campus.</li>
+      <li>Fair play and honesty are expected throughout the game.</li>
+      <li class="highlight">To claim the prize, the winner must show proof of all five puzzles solved.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Outcome</h2>
+    <p>
+      The event brings festive excitement and campus exploration to the SLC community. Expect an evening of fun, discovery,
+      and holiday spirit as you race to find the treasure! 🎅✨
+    </p>
+  </section>
+
+  <div class="button-container">
+    <a href="index.html" class="start-btn" target="_blank">🎯 Start the Hunt</a>
+  </div>
+
+  <footer>
+    <p>© 2025 Student Learning Community | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    
+    const snowContainer = document.createElement('div');
+    document.body.appendChild(snowContainer);
+
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.textContent = '❄';
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.animationDuration = 3 + Math.random() * 5 + 's';
+      snowflake.style.fontSize = 10 + Math.random() * 20 + 'px';
+      snowflake.style.opacity = Math.random();
+      snowContainer.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), 8000);
+    }
+
+    setInterval(createSnowflake, 200);
+  </script>
+</body>
+</html>
+
