@@ -301,18 +301,20 @@
 
     setInterval(createSnowflake, 200);
 
-    video.addEventListener("mouseenter", () => {  
-  video.play();
-});
+   document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('hoverVideo');
 
-video.addEventListener("mouseleave", () => {
-  video.pause();
-  video.currentTime = 0; 
-});
+    video.addEventListener('mouseenter', () => video.play());
+    video.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
 
   </script>
 </body>
 </html>
+
 
 
 
