@@ -305,18 +305,18 @@
     setInterval(createSnowflake, 200);
     const video = document.getElementById("avatar");
 
-video.addEventListener("mouseenter", () => {  
-  video.play();
-});
+const silentPlay = () => video.play().catch(() => null);
+
+video.addEventListener("mouseenter", silentPlay);
 
 video.addEventListener("mouseleave", () => {
-  video.pause();
-  video.currentTime = 0; 
+  try { video.pause(); } catch(e) {}
+  video.currentTime = 0;
 });
-
   </script>
 </body>
 </html>
+
 
 
 
