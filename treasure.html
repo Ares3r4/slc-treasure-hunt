@@ -137,7 +137,7 @@
       0% { transform: translateY(-10px); opacity: 1; }
       100% { transform: translateY(100vh); opacity: 0.3; }
     }
-     #avatar {
+     #hoverVideo {
   width: 280px;
   border-radius: 15px;
   cursor: pointer;
@@ -154,7 +154,7 @@
   animation: fadeUpAvatar 1.5s ease;
 }
 
-#avatar:hover {
+#hoverVideo:hover {
   transform: scale(1.12); 
 
   filter: drop-shadow(0 0 18px rgba(255, 123, 145, 0.8));
@@ -270,15 +270,16 @@
     <a href="https://www.canva.com/" class="start-btn" target="_blank">🎯 Start the Hunt</a>
   </div>
  <section class="creator-box"><h2>About the creator</h2>
-    <iframe 
-    id="avatar" 
-    width="320" 
-    height="240" 
-    src="https://www.youtube.com/embed/VIDEO_ID?autoplay=0&mute=1&controls=0&rel=0&modestbranding=1" 
-    frameborder="0" 
-    allow="autoplay; encrypted-media" 
+   <iframe
+    id="hoverVideo"
+    width="320"
+    height="240"
+    src="https://www.youtube.com/embed/TMdd8i4Pyac?enablejsapi=1&controls=0&rel=0&modestbranding=1&mute=1"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
     allowfullscreen
 ></iframe>
+
    <p> Hi! I’m Eshaan — a first-year Computer Science student who loves building interactive projects that bring people together. I created this Christmas Treasure Hunt as a fun way to add a bit of mystery, excitement, and festive magic to our community. </p> <p> I hope you enjoy exploring each clue as much as I enjoyed crafting them. Think creatively, have fun with every step, and most importantly… enjoy the hunt! 🎄✨ </p>
     <a href="https://www.linkedin.com/in/eshaan-srivastava-4a5711382?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="linkedin-btn">
   Connect with me on LinkedIn
@@ -307,20 +308,25 @@
 
     setInterval(createSnowflake, 200);
 
- const iframe = document.getElementById('avatar');
-const player = new YT.Player(iframe, { 
-    events: { 
-        'onReady': onPlayerReady
-    } 
-});
+ function onYouTubeIframeAPIReady() {
+    const player = new YT.Player('hoverVideo');
 
-function onPlayerReady(event) {
+    const iframe = document.getElementById('hoverVideo');
+
+    // Desktop: hover to play/pause
     iframe.addEventListener('mouseenter', () => player.playVideo());
     iframe.addEventListener('mouseleave', () => player.pauseVideo());
-}
+
+    // Mobile: tap to play/pause
+    iframe.addEventListener('click', () => {
+      if (player.getPlayerState() !== 1) player.playVideo();
+      else player.pauseVideo();
+    });
+  }
   </script>
 </body>
 </html>
+
 
 
 
