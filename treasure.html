@@ -303,21 +303,23 @@
     }
 
     setInterval(createSnowflake, 200);
-   video.addEventListener("mouseenter", () => {
-  const p = video.play();
-  if (p !== undefined) {
-    p.catch(() => {}); // swallow the AbortError
-  }
-});
+   document.addEventListener("DOMContentLoaded", () => {
+  const video = document.getElementById("avatar");
 
-video.addEventListener("mouseleave", () => {
-  try { video.pause(); } catch(e) {}
-  video.currentTime = 0;
+  video.addEventListener("mouseenter", () => {
+    video.play().catch(() => {});
+  });
+
+  video.addEventListener("mouseleave", () => {
+    video.pause();
+    video.currentTime = 0;
+  });
 });
 
   </script>
 </body>
 </html>
+
 
 
 
