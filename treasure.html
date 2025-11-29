@@ -270,9 +270,15 @@
     <a href="https://www.canva.com/" class="start-btn" target="_blank">🎯 Start the Hunt</a>
   </div>
  <section class="creator-box"><h2>About the creator</h2>
-    <video id="avatar" width="250" muted>
-      <source src="https://youtube.com/shorts/TMdd8i4Pyac?feature=share" type="video/mp4">
-    </video>
+    <iframe 
+    id="avatar" 
+    width="320" 
+    height="240" 
+    src="https://www.youtube.com/embed/VIDEO_ID?autoplay=0&mute=1&controls=0&rel=0&modestbranding=1" 
+    frameborder="0" 
+    allow="autoplay; encrypted-media" 
+    allowfullscreen
+></iframe>
    <p> Hi! I’m Eshaan — a first-year Computer Science student who loves building interactive projects that bring people together. I created this Christmas Treasure Hunt as a fun way to add a bit of mystery, excitement, and festive magic to our community. </p> <p> I hope you enjoy exploring each clue as much as I enjoyed crafting them. Think creatively, have fun with every step, and most importantly… enjoy the hunt! 🎄✨ </p>
     <a href="https://www.linkedin.com/in/eshaan-srivastava-4a5711382?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="linkedin-btn">
   Connect with me on LinkedIn
@@ -282,7 +288,7 @@
     <p>© 2025 CMS | All Rights Reserved</p>
   </footer>
 
-  <script>
+  <script src="https://www.youtube.com/iframe_api">
     
     const snowContainer = document.createElement('div');
     document.body.appendChild(snowContainer);
@@ -301,7 +307,7 @@
 
     setInterval(createSnowflake, 200);
 
- const iframe = document.getElementById('hoverVideo');
+ const iframe = document.getElementById('avatar');
 const player = new YT.Player(iframe, { 
     events: { 
         'onReady': onPlayerReady
@@ -315,6 +321,7 @@ function onPlayerReady(event) {
   </script>
 </body>
 </html>
+
 
 
 
