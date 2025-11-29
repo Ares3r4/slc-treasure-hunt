@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CMS Christmas Treasure Hunt</title>
+  <title>SLC Christmas Treasure Hunt</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
     body {
@@ -137,29 +137,45 @@
       0% { transform: translateY(-10px); opacity: 1; }
       100% { transform: translateY(100vh); opacity: 0.3; }
     }
-     .avatar {
-      width: 250px;
-      height: 250px;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      margin-bottom: 20px;
-      transition: transform 0.3s ease; /* Smooth hover effect */
-    }
+    #avatar {
+  width: 280px;
+  border-radius: 15px;
+  cursor: pointer;
+  align-self: first baseline;
 
-    /* Hover effect for desktop */
-    @media (hover: hover) and (pointer: fine) {
-      .avatar:hover {
-        transform: scale(1.05); /* Slight zoom on hover */
-      }
-    }
+  
+  transition: 
+    transform 0.4s ease,
+    filter 0.4s ease,
+    box-shadow 0.4s ease;
 
-    /* Make iframe fill the container */
-    .avatar iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
+  box-shadow: 0 0 15px rgba(233, 69, 96, 0.25);
+
+  animation: fadeUpAvatar 1.5s ease;
+}
+
+#avatar:hover {
+  transform: scale(1.12); 
+
+  filter: drop-shadow(0 0 18px rgba(255, 123, 145, 0.8));
+  
+
+  box-shadow: 
+    0 0 25px rgba(255, 123, 145, 0.8),
+    0 4px 30px rgba(0,0,0,0.3);
+}
+
+
+@keyframes fadeUpAvatar {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
  .creator-box {
       max-width: 300px;
       margin: 2rem auto;
@@ -196,18 +212,19 @@
   box-shadow: 0 0 25px rgba(59, 132, 216, 0.9);
 }
 
+
   </style>
 </head>
 <body>
   <header>
-    <h1>🎄 CMS Christmas treasure hunt 🎁</h1>
-    <p>Hosted by the Student Learning Community</p>
+    <h1>🎄 CMS Christmas Treasure Hunt 🎁</h1>
+    <p>Hosted by the CMS</p>
   </header>
 
   <section>
     <h2>Objective</h2>
     <p>
-      The purpose of this event is to organize a fun and engaging treasure hunt activity for members of CMS.
+      The purpose of this event is to organize a fun and engaging treasure hunt activity for members of the Student Learning Community.
       It encourages <span class="highlight">problem-solving and exploration</span> while bringing a festive and exciting challenge across campus.
     </p>
   </section>
@@ -217,7 +234,7 @@
     <p>
       The Treasure Hunt features <span class="highlight">five hidden locations</span> around the campus.
       Each location can be found by scanning <span class="highlight">QR codes</span> that lead to digital puzzles.
-      Each puzzle is a, <span class="highlight"> clue for the next location </span>.
+      When a puzzle is solved, <span class="highlight">the next location will be visible</span>.
     </p>
   </section>
 
@@ -226,6 +243,7 @@
     <ul>
       <li>Start at the designated starting point and scan the first QR code.</li>
       <li>Each QR code opens a webpage with a puzzle of a familiar campus location.</li>
+      <li>When the puzzle is solved, <span class="highlight">the next location will be visible</span>.</li>
       <li>Continue through all <span class="highlight">five stages</span> to complete the hunt.</li>
       <li>The first participant to finish all puzzles and reach the final spot wins!</li>
     </ul>
@@ -251,17 +269,12 @@
   </section>
 
   <div class="button-container">
-    <a href="https://www.canva.com/" class="start-btn" target="_blank">🎯 Start the Hunt</a>
+    <a href="https://puzzel.org/en/slidingpuzzle/play?p=-OdJXTjjC3wGSc4vcafa" class="start-btn" target="_blank">🎯 Start the Hunt</a>
   </div>
- <section class="creator-box"><h2>About the creator</h2>
-  <div class="avatar">
-    <iframe 
-      src="https://www.youtube.com/embed/TMdd8i4Pyac?rel=0&modestbranding=1"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
-
+  <section class="creator-box"><h2>About the creator</h2>
+    <video id="avatar" width="250" muted>
+      <source src="avatar.mp4" type="video/mp4">
+    </video>
    <p> Hi! I’m Eshaan — a first-year Computer Science student who loves building interactive projects that bring people together. I created this Christmas Treasure Hunt as a fun way to add a bit of mystery, excitement, and festive magic to our community. </p> <p> I hope you enjoy exploring each clue as much as I enjoyed crafting them. Think creatively, have fun with every step, and most importantly… enjoy the hunt! 🎄✨ </p>
     <a href="https://www.linkedin.com/in/eshaan-srivastava-4a5711382?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="linkedin-btn">
   Connect with me on LinkedIn
@@ -271,7 +284,7 @@
     <p>© 2025 CMS | All Rights Reserved</p>
   </footer>
 
-  <script src="https://www.youtube.com/iframe_api">
+  <script>
     
     const snowContainer = document.createElement('div');
     document.body.appendChild(snowContainer);
@@ -289,35 +302,18 @@
     }
 
     setInterval(createSnowflake, 200);
+    const video = document.getElementById("avatar");
 
- function onYouTubeIframeAPIReady() {
-    const player = new YT.Player('hoverVideo');
+video.addEventListener("mouseenter", () => {  
+  video.play();
+});
 
-    const iframe = document.getElementById('hoverVideo');
+video.addEventListener("mouseleave", () => {
+  video.pause();
+  video.currentTime = 0; 
+});
 
-    // Desktop: hover to play/pause
-    iframe.addEventListener('mouseenter', () => player.playVideo());
-    iframe.addEventListener('mouseleave', () => player.pauseVideo());
-
-    // Mobile: tap to play/pause
-    iframe.addEventListener('click', () => {
-      if (player.getPlayerState() !== 1) player.playVideo();
-      else player.pauseVideo();
-    });
-  }
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
 
