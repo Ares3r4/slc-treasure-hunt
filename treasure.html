@@ -137,45 +137,29 @@
       0% { transform: translateY(-10px); opacity: 1; }
       100% { transform: translateY(100vh); opacity: 0.3; }
     }
-     #hoverVideo {
-  width: 280px;
-  border-radius: 15px;
-  cursor: pointer;
-  align-self: first baseline;
+     .avatar {
+      width: 250px;
+      height: 250px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease; /* Smooth hover effect */
+    }
 
-  
-  transition: 
-    transform 0.4s ease,
-    filter 0.4s ease,
-    box-shadow 0.4s ease;
+    /* Hover effect for desktop */
+    @media (hover: hover) and (pointer: fine) {
+      .avatar:hover {
+        transform: scale(1.05); /* Slight zoom on hover */
+      }
+    }
 
-  box-shadow: 0 0 15px rgba(233, 69, 96, 0.25);
-
-  animation: fadeUpAvatar 1.5s ease;
-}
-
-#hoverVideo:hover {
-  transform: scale(1.12); 
-
-  filter: drop-shadow(0 0 18px rgba(255, 123, 145, 0.8));
-  
-
-  box-shadow: 
-    0 0 25px rgba(255, 123, 145, 0.8),
-    0 4px 30px rgba(0,0,0,0.3);
-}
-
-
-@keyframes fadeUpAvatar {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
+    /* Make iframe fill the container */
+    .avatar iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
  .creator-box {
       max-width: 300px;
       margin: 2rem auto;
@@ -270,15 +254,13 @@
     <a href="https://www.canva.com/" class="start-btn" target="_blank">🎯 Start the Hunt</a>
   </div>
  <section class="creator-box"><h2>About the creator</h2>
-   <iframe
-    id="hoverVideo"
-    width="320"
-    height="240"
-    src="https://www.youtube.com/embed/TMdd8i4Pyac?enablejsapi=1&controls=0&rel=0&modestbranding=1&mute=1"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen
-></iframe>
+  <div class="avatar">
+    <iframe 
+      src="https://www.youtube.com/embed/TMdd8i4Pyac?rel=0&modestbranding=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
 
    <p> Hi! I’m Eshaan — a first-year Computer Science student who loves building interactive projects that bring people together. I created this Christmas Treasure Hunt as a fun way to add a bit of mystery, excitement, and festive magic to our community. </p> <p> I hope you enjoy exploring each clue as much as I enjoyed crafting them. Think creatively, have fun with every step, and most importantly… enjoy the hunt! 🎄✨ </p>
     <a href="https://www.linkedin.com/in/eshaan-srivastava-4a5711382?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="linkedin-btn">
@@ -326,6 +308,7 @@
   </script>
 </body>
 </html>
+
 
 
 
