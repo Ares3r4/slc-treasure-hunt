@@ -301,25 +301,21 @@
 
     setInterval(createSnowflake, 200);
 
-  document.addEventListener('DOMContentLoaded', function() {
-    const hoverVideo = document.getElementById('hoverVideo'); // safer name
+ const iframe = document.getElementById('hoverVideo');
+const player = new YT.Player(iframe, { 
+    events: { 
+        'onReady': onPlayerReady
+    } 
+});
 
-    if (hoverVideo) { // check if element exists
-      hoverVideo.addEventListener('mouseenter', function() {
-        hoverVideo.play();
-      });
-
-      hoverVideo.addEventListener('mouseleave', function() {
-        hoverVideo.pause();
-        hoverVideo.currentTime = 0;
-      });
-    } else {
-      console.error("Video element not found!");
-    }
-  });
+function onPlayerReady(event) {
+    iframe.addEventListener('mouseenter', () => player.playVideo());
+    iframe.addEventListener('mouseleave', () => player.pauseVideo());
+}
   </script>
 </body>
 </html>
+
 
 
 
