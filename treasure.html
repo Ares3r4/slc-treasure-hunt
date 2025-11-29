@@ -137,6 +137,15 @@
       0% { transform: translateY(-10px); opacity: 1; }
       100% { transform: translateY(100vh); opacity: 0.3; }
     }
+    #snow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99999;
+}
     #avatar {
   
   width: 280px;
@@ -288,6 +297,7 @@
   <script>
     
     const snowContainer = document.createElement('div');
+    snowContainer.id = "snow-container"; 
     document.body.appendChild(snowContainer);
 
     function createSnowflake() {
@@ -326,6 +336,7 @@ setInterval(createSnowflake, 200);
   </script>
 </body>
 </html>
+
 
 
 
